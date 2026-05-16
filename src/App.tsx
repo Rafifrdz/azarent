@@ -19,7 +19,11 @@ import {
   Zap,
   Lock,
   EyeOff,
-  Phone
+  FileWarning,
+  Send,
+  MapPin,
+  Calendar,
+  Laptop
 } from 'lucide-react';
 
 // --- Components ---
@@ -41,6 +45,7 @@ const Navbar = ({ onStayAway }: { onStayAway: () => void }) => {
     { name: 'Evidence', href: '#services' },
     { name: 'Stolen Goods', href: '#catalog' },
     { name: 'Victims', href: '#testimonials' },
+    { name: 'Report', href: '#report' },
   ];
 
   return (
@@ -116,7 +121,7 @@ const Navbar = ({ onStayAway }: { onStayAway: () => void }) => {
   );
 };
 
-const Hero = ({ onReport }: { onReport: () => void }) => {
+const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-crime-black">
       {/* Decorative Blood Splatters */}
@@ -143,19 +148,19 @@ const Hero = ({ onReport }: { onReport: () => void }) => {
           </div>
 
           <p className="text-gray-500 mb-10 max-w-md text-lg leading-relaxed border-l-2 border-danger-red pl-6">
-            Azarine bukan sekadar penyewa. Dia adalah kriminal kakap yang akan membuat laptopmu menghilang tanpa jejak.
+            Azarine sudah menghilangkan <span className="text-danger-red font-black">SELURUH laptop pinjaman</span> dan langsung kabur tanpa jejak. Tidak ada satupun unit yang kembali. Semua korban dibiarkan menanggung kerugian jutaan rupiah.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="#catalog" className="danger-btn flex items-center justify-center gap-2">
               LOSE YOUR DEVICE <ArrowRight size={18} />
             </a>
-            <button 
-              onClick={onReport}
-              className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs"
+            <a 
+              href="#report"
+              className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-2"
             >
-              LAPORKAN LAPTOPMU
-            </button>
+              <FileWarning size={16} /> LAPORKAN LAPTOPMU
+            </a>
           </div>
 
           <div className="mt-12 flex items-center gap-4">
@@ -221,20 +226,20 @@ const Hero = ({ onReport }: { onReport: () => void }) => {
 const Services = () => {
   const modus = [
     {
-      title: 'Penghilangan Unit',
-      desc: 'Laptop masuk, tapi tidak pernah keluar. Azarine memastikan jejak digitalmu terhapus selamanya.',
+      title: 'Penghilangan Massal',
+      desc: 'Semua laptop yang pernah masuk ke Azarine tidak pernah kembali. Total kerugian korban mencapai ratusan juta rupiah. Dia menghilang bersama semua unit sekaligus.',
       icon: <EyeOff className="text-danger-red" size={32} />,
       bg: 'bg-crime-gray'
     },
     {
-      title: 'Pencucian Barang',
-      desc: 'Gadai barangmu di sini dan saksikan bagaimana barang itu pindah tangan ke pasar gelap dalam 24 jam.',
+      title: 'Kabur Tanpa Jejak',
+      desc: 'Setelah mengumpulkan puluhan laptop dari korban, Azarine langsung menghilang. Nomor HP mati, alamat palsu, identitas fiktif. Tidak ada yang bisa melacak keberadaannya.',
       icon: <Ghost className="text-danger-red" size={32} />,
       bg: 'bg-crime-black'
     },
     {
-      title: 'Intimidasi 24/7',
-      desc: 'Admin kami siap meneror jika kamu mencoba meminta barangmu kembali.',
+      title: 'Manipulasi Total',
+      desc: 'Azarine menggunakan identitas palsu, testimoni palsu, dan jaminan palsu untuk meyakinkan korban. Setelah barang di tangan, semua janji langsung dilanggar.',
       icon: <ShieldAlert className="text-danger-red" size={32} />,
       bg: 'bg-crime-gray'
     }
@@ -373,24 +378,65 @@ const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
   );
 };
 
+const CrimeTimeline = () => {
+  const events = [
+    { date: 'Jan 2026', event: 'Azarine mulai beroperasi dengan kedok rental laptop premium', icon: <Laptop size={16} /> },
+    { date: 'Feb 2026', event: 'Korban pertama melapor: MacBook Pro senilai Rp 25 juta tidak dikembalikan', icon: <AlertTriangle size={16} /> },
+    { date: 'Mar 2026', event: '15 korban baru. Azarine pindah lokasi dan ganti nomor HP', icon: <MapPin size={16} /> },
+    { date: 'Apr 2026', event: 'Total 47 laptop hilang. Kerugian mencapai Rp 500 juta. Azarine menghilang total', icon: <Skull size={16} /> },
+  ];
+
+  return (
+    <section className="py-20 bg-crime-black border-y border-danger-red/10">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <span className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black">Crime Timeline</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-black mt-4 text-white uppercase italic">Kronologi Kejahatan</h2>
+        </div>
+        <div className="relative">
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-danger-red/30" />
+          {events.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className={`relative flex items-start gap-6 mb-10 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} md:text-${i % 2 === 0 ? 'right' : 'left'}`}
+            >
+              <div className="hidden md:block flex-1" />
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 bg-crime-black border-2 border-danger-red flex items-center justify-center text-danger-red z-10">
+                {item.icon}
+              </div>
+              <div className="flex-1 ml-14 md:ml-0 glass p-6 border-l-2 border-danger-red">
+                <span className="text-danger-red text-[10px] font-black uppercase tracking-widest">{item.date}</span>
+                <p className="text-gray-400 text-sm mt-2 font-bold">{item.event}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Testimonials = () => {
   const reviews = [
     {
       name: 'Korban #001',
       role: 'Eks-Mahasiswa UI',
-      comment: 'Laptop saya dibawa kabur Azarine. Sekarang saya tidak bisa skripsi. Dia benar-benar pencuri kakap!',
+      comment: 'Laptop saya untuk skripsi dibawa kabur Azarine. Dia bilang "besok dikembalikan" tapi besoknya nomor sudah tidak aktif. Saya kehilangan laptop dan data skripsi sekaligus.',
       img: 'https://i.pravatar.cc/100?img=11'
     },
     {
       name: 'Korban #042',
       role: 'Pengusaha Bangkrut',
-      comment: 'Niatnya gadai buat modal, malah barangnya langsung dijual ke luar negeri. Jangan pernah ke sini!',
+      comment: 'Saya gadaikan 3 laptop kantor untuk modal usaha. Azarine berjanji bunga rendah dan transparan. Seminggu kemudian dia menghilang bersama ketiga laptop senilai Rp 75 juta.',
       img: 'https://i.pravatar.cc/100?img=53'
     },
     {
       name: 'Anonim',
       role: 'Saksi Mata',
-      comment: 'Saya lihat Azarine membawa karung berisi 20 Macbook tengah malam. Kriminal kelas berat.',
+      comment: 'Saya pernah satu kos dengan Azarine. Tengah malam dia bawa keluar 2 koper penuh laptop. Besoknya dia sudah pindah kos tanpa bilang siapapun.',
       img: 'https://i.pravatar.cc/100?img=32'
     }
   ];
@@ -430,6 +476,153 @@ const Testimonials = () => {
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
+
+const ReportForm = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    nama: '', hp: '', laptopMerk: '', laptopSeri: '', tanggalHilang: '', lokasi: '', kronologi: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <section id="report" className="py-24 bg-crime-black relative">
+      <div className="blood-splatter top-[-5%] left-[-10%] w-[40%] h-[40%]" />
+      <div className="max-w-3xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-12">
+          <span className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black flex items-center justify-center gap-2">
+            <FileWarning size={14} /> Crime Report Form
+          </span>
+          <h2 className="text-3xl md:text-5xl font-serif font-black mt-4 text-white uppercase italic">Laporkan Laptopmu yang Dicuri Azarine</h2>
+          <p className="text-gray-500 text-sm mt-4 max-w-lg mx-auto">Isi form di bawah jika kamu adalah korban pencurian laptop oleh sindikat Azarine. Data akan dikumpulkan sebagai bukti untuk penegak hukum.</p>
+        </div>
+
+        <AnimatePresence mode="wait">
+          {!submitted ? (
+            <motion.form
+              key="form"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              onSubmit={handleSubmit}
+              className="glass p-8 md:p-10 border border-danger-red/20 space-y-6"
+            >
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block">Nama Lengkap *</label>
+                  <input
+                    required
+                    value={formData.nama}
+                    onChange={e => setFormData({...formData, nama: e.target.value})}
+                    className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
+                    placeholder="Nama korban"
+                  />
+                </div>
+                <div>
+                  <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block">No. HP / WhatsApp *</label>
+                  <input
+                    required
+                    value={formData.hp}
+                    onChange={e => setFormData({...formData, hp: e.target.value})}
+                    className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
+                    placeholder="08xx-xxxx-xxxx"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block">Merk Laptop *</label>
+                  <input
+                    required
+                    value={formData.laptopMerk}
+                    onChange={e => setFormData({...formData, laptopMerk: e.target.value})}
+                    className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
+                    placeholder="cth: MacBook Pro, ASUS ROG"
+                  />
+                </div>
+                <div>
+                  <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block">Seri / Tipe</label>
+                  <input
+                    value={formData.laptopSeri}
+                    onChange={e => setFormData({...formData, laptopSeri: e.target.value})}
+                    className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
+                    placeholder="cth: M2 2023, Strix G15"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block flex items-center gap-1"><Calendar size={10} /> Tanggal Terakhir Dilihat</label>
+                  <input
+                    type="date"
+                    value={formData.tanggalHilang}
+                    onChange={e => setFormData({...formData, tanggalHilang: e.target.value})}
+                    className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block flex items-center gap-1"><MapPin size={10} /> Lokasi Penyerahan</label>
+                  <input
+                    value={formData.lokasi}
+                    onChange={e => setFormData({...formData, lokasi: e.target.value})}
+                    className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
+                    placeholder="cth: Kos-kosan daerah Depok"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block">Kronologi Kejadian *</label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formData.kronologi}
+                  onChange={e => setFormData({...formData, kronologi: e.target.value})}
+                  className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600 resize-none"
+                  placeholder="Ceritakan bagaimana Azarine mencuri laptopmu..."
+                />
+              </div>
+
+              <button type="submit" className="w-full py-4 bg-danger-red text-white font-black uppercase tracking-[0.2em] hover:bg-crimson transition-all flex items-center justify-center gap-3">
+                <Send size={18} /> KIRIM LAPORAN KEJAHATAN
+              </button>
+
+              <p className="text-gray-600 text-[10px] text-center uppercase tracking-widest">Data anda akan dienkripsi dan dikirim ke database korban Azarine</p>
+            </motion.form>
+          ) : (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="glass p-12 border-2 border-danger-red text-center shadow-[0_0_60px_rgba(255,0,0,0.2)]"
+            >
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 0.5, repeat: 3 }}
+              >
+                <Skull className="text-danger-red mx-auto mb-6" size={64} />
+              </motion.div>
+              <h3 className="text-2xl font-serif font-black text-danger-red uppercase italic mb-4">Laporan Diterima</h3>
+              <p className="text-gray-400 font-bold uppercase tracking-tight text-sm mb-2">KASUS #{Math.floor(Math.random() * 900 + 100)} TELAH DIDAFTARKAN</p>
+              <p className="text-gray-500 text-sm mb-8">Terima kasih telah melapor. Kamu adalah korban ke-{Math.floor(Math.random() * 40 + 48)} dari sindikat Azarine. Laporanmu telah ditambahkan ke evidence locker.</p>
+              <button
+                onClick={() => { setSubmitted(false); setFormData({ nama: '', hp: '', laptopMerk: '', laptopSeri: '', tanggalHilang: '', lokasi: '', kronologi: '' }); }}
+                className="px-8 py-3 border border-danger-red/50 text-danger-red font-black uppercase tracking-widest text-xs hover:bg-danger-red hover:text-white transition-all"
+              >
+                LAPORKAN KASUS LAIN
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
@@ -560,13 +753,7 @@ export default function App() {
     );
   };
 
-  const handleReport = () => {
-    showAlert(
-      "LAPORAN DITOLAK",
-      "SISTEM KEPOLISIAN TELAH DIREWIRING OLEH AZARINE. LAPORAN ANDA HANYA AKAN MEMPERCEPAT PROSES PENGHILANGAN UNIT. TIDAK ADA JALAN KELUAR.",
-      "warning"
-    );
-  };
+
 
   const handleTouchItem = () => {
     showAlert(
@@ -590,10 +777,12 @@ export default function App() {
     <div className={`antialiased selection:bg-danger-red/50 selection:text-white bg-crime-black cursor-crosshair transition-all duration-300 ${panicMode ? 'hue-rotate-[180deg] brightness-125' : ''}`}>
       <Navbar onStayAway={handleStayAway} />
       <main>
-        <Hero onReport={handleReport} />
+        <Hero />
         <Services />
         <Catalog onTouchItem={handleTouchItem} />
+        <CrimeTimeline />
         <Testimonials />
+        <ReportForm />
       </main>
       <Footer onAction={() => showAlert("SINDIKAT AKTIF", "AZARINE SEDANG MEMANTAU SETIAP KLIK ANDA. JANGAN MENCOBA MENGHUBUNGI SIAPAPUN.")} />
       <FloatingWarning onClick={handlePanic} />
