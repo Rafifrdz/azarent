@@ -148,7 +148,7 @@ const Hero = () => {
               LOSE YOUR DEVICE <ArrowRight size={18} />
             </button>
             <button className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs">
-              BECOME A VICTIM
+              LAPORKAN LAPTOPMU
             </button>
           </div>
 
