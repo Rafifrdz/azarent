@@ -18,12 +18,13 @@ import {
   Target,
   Zap,
   Lock,
-  EyeOff
+  EyeOff,
+  Phone
 } from 'lucide-react';
 
 // --- Components ---
 
-const Navbar = () => {
+const Navbar = ({ onStayAway }: { onStayAway: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -48,7 +49,8 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-serif italic font-black text-danger-red tracking-[0.2em] glitch-text"
+          className="text-2xl font-serif italic font-black text-danger-red tracking-[0.2em] glitch-text cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           AZARINE: CRIMINALE
         </motion.div>
@@ -71,6 +73,7 @@ const Navbar = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="danger-btn text-xs py-2 px-6"
+            onClick={onStayAway}
           >
             STAY AWAY
           </motion.button>
@@ -104,7 +107,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="danger-btn w-full">EXIT NOW</button>
+              <button className="danger-btn w-full" onClick={onStayAway}>EXIT NOW</button>
             </div>
           </motion.div>
         )}
@@ -113,7 +116,7 @@ const Navbar = () => {
   );
 };
 
-const Hero = () => {
+const Hero = ({ onReport }: { onReport: () => void }) => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-crime-black">
       {/* Decorative Blood Splatters */}
@@ -144,10 +147,13 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="danger-btn flex items-center justify-center gap-2">
+            <a href="#catalog" className="danger-btn flex items-center justify-center gap-2">
               LOSE YOUR DEVICE <ArrowRight size={18} />
-            </button>
-            <button className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs">
+            </a>
+            <button 
+              onClick={onReport}
+              className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs"
+            >
               LAPORKAN LAPTOPMU
             </button>
           </div>
@@ -278,7 +284,7 @@ const Services = () => {
   );
 };
 
-const Catalog = () => {
+const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
   const stolenGoods = [
     {
       name: 'BB LAPTOP SAMEC',
@@ -318,7 +324,10 @@ const Catalog = () => {
             <span className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black">Evidence Locker</span>
             <h2 className="text-4xl md:text-6xl font-serif font-black mt-4 text-white italic uppercase">Barang Bukti Terakhir</h2>
           </div>
-          <button className="text-danger-red font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:line-through">
+          <button 
+            onClick={onTouchItem}
+            className="text-danger-red font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:line-through"
+          >
             DO NOT TOUCH <ChevronRight size={20} />
           </button>
         </div>
@@ -347,10 +356,13 @@ const Catalog = () => {
                 <p className="text-danger-red text-[10px] font-black uppercase mb-1 tracking-widest">{item.brand}</p>
                 <h4 className="text-xl font-bold mb-4 text-white line-through opacity-50">{item.name}</h4>
                 <div className="flex items-center justify-between border-t border-danger-red/10 pt-4">
-                  <span className="text-danger-red font-black text-sm tracking-tighter">STATUS: {item.status}</span>
-                  <div className="w-8 h-8 bg-danger-red/10 flex items-center justify-center border border-danger-red/30">
-                    <Lock size={14} className="text-danger-red" />
-                  </div>
+                  <span className="text-danger-red font-black text-sm tracking-tighter uppercase">STATUS: {item.status}</span>
+                  <button 
+                    onClick={onTouchItem}
+                    className="w-8 h-8 bg-danger-red/10 flex items-center justify-center border border-danger-red/30 hover:bg-danger-red hover:text-white transition-all"
+                  >
+                    <Lock size={14} />
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -423,7 +435,7 @@ const Testimonials = () => {
   );
 };
 
-const Footer = () => {
+const Footer = ({ onAction }: { onAction: () => void }) => {
   return (
     <footer className="bg-crime-black border-t border-danger-red/30 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
@@ -435,9 +447,13 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               {[Target, Zap, Skull].map((Icon, i) => (
-                <div key={i} className="w-10 h-10 rounded-none bg-crime-gray flex items-center justify-center text-danger-red hover:bg-danger-red hover:text-white transition-all border border-danger-red/20">
+                <button 
+                  key={i} 
+                  onClick={onAction}
+                  className="w-10 h-10 rounded-none bg-crime-gray flex items-center justify-center text-danger-red hover:bg-danger-red hover:text-white transition-all border border-danger-red/20"
+                >
                   <Icon size={20} />
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -448,7 +464,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-danger-red transition-colors">Crime Scene</a></li>
               <li><a href="#services" className="hover:text-danger-red transition-colors">Modus Operandi</a></li>
               <li><a href="#catalog" className="hover:text-danger-red transition-colors">Stolen List</a></li>
-              <li><a href="#" className="hover:text-danger-red transition-colors">Escape Route</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); onAction(); }} className="hover:text-danger-red transition-colors">Escape Route</a></li>
             </ul>
           </div>
 
@@ -471,12 +487,51 @@ const Footer = () => {
   );
 };
 
-const FloatingWarning = () => {
+const Modal = ({ isOpen, onClose, title, message, type = 'danger' }: { isOpen: boolean, onClose: () => void, title: string, message: string, type?: 'danger' | 'warning' }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm" 
+          />
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            className={`relative w-full max-w-lg bg-crime-black border-2 ${type === 'danger' ? 'border-danger-red shadow-[0_0_50px_rgba(255,0,0,0.3)]' : 'border-warning-yellow shadow-[0_0_50px_rgba(255,204,0,0.2)]'} p-8 rounded-none`}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              {type === 'danger' ? <Skull className="text-danger-red" size={40} /> : <AlertTriangle className="text-warning-yellow" size={40} />}
+              <h2 className={`text-2xl font-serif font-black uppercase italic ${type === 'danger' ? 'text-danger-red' : 'text-warning-yellow'}`}>{title}</h2>
+            </div>
+            <p className="text-gray-400 mb-8 leading-relaxed font-bold uppercase tracking-tight text-sm">
+              {message}
+            </p>
+            <button 
+              onClick={onClose}
+              className={`w-full py-4 font-black uppercase tracking-[0.2em] transition-all ${type === 'danger' ? 'bg-danger-red text-white hover:bg-crimson' : 'bg-warning-yellow text-black hover:bg-yellow-500'}`}
+            >
+              UNDERSTOOD
+            </button>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+const FloatingWarning = ({ onClick }: { onClick: () => void }) => {
   return (
     <motion.button
       initial={{ scale: 0, rotate: -45 }}
       animate={{ scale: 1, rotate: 0 }}
       whileHover={{ scale: 1.1 }}
+      onClick={onClick}
       className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-danger-red text-white rounded-none flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.5)] hover:shadow-danger-red/80 transition-all border-2 border-white/20"
     >
       <AlertTriangle size={32} />
@@ -485,17 +540,71 @@ const FloatingWarning = () => {
 };
 
 export default function App() {
+  const [modal, setModal] = useState<{ open: boolean, title: string, message: string, type: 'danger' | 'warning' }>({
+    open: false,
+    title: '',
+    message: '',
+    type: 'danger'
+  });
+
+  const [panicMode, setPanicMode] = useState(false);
+
+  const showAlert = (title: string, message: string, type: 'danger' | 'warning' = 'danger') => {
+    setModal({ open: true, title, message, type });
+  };
+
+  const handleStayAway = () => {
+    showAlert(
+      "DANGER DETECTED",
+      "ANDA MASUK DALAM RADIUS PANTAUAN SINDIKAT AZARINE. DATA ANDA SEDANG DI-ENKRIPSI. SEGERA TINGGALKAN HALAMAN INI SEBELUM LAPTOP ANDA MENJADI MILIK KAMI."
+    );
+  };
+
+  const handleReport = () => {
+    showAlert(
+      "LAPORAN DITOLAK",
+      "SISTEM KEPOLISIAN TELAH DIREWIRING OLEH AZARINE. LAPORAN ANDA HANYA AKAN MEMPERCEPAT PROSES PENGHILANGAN UNIT. TIDAK ADA JALAN KELUAR.",
+      "warning"
+    );
+  };
+
+  const handleTouchItem = () => {
+    showAlert(
+      "ACCESS DENIED",
+      "BARANG INI SUDAH TERJUAL DI BLACK MARKET RUSIA. MENYENTUH EVIDENCE LOCKER AKAN MEMICU ALARM SILENT KE PERSEMBUNYIAN AZARINE."
+    );
+  };
+
+  const handlePanic = () => {
+    setPanicMode(!panicMode);
+    if (!panicMode) {
+      showAlert(
+        "PANIC MODE ACTIVATED",
+        "PROTOKOL PENGHANCURAN DATA DIMULAI. JANGAN MATIKAN LAPTOP ANDA. AZARINE SEDANG MENUJU LOKASI ANDA.",
+        "danger"
+      );
+    }
+  };
+
   return (
-    <div className="antialiased selection:bg-danger-red/50 selection:text-white bg-crime-black cursor-crosshair">
-      <Navbar />
+    <div className={`antialiased selection:bg-danger-red/50 selection:text-white bg-crime-black cursor-crosshair transition-all duration-300 ${panicMode ? 'hue-rotate-[180deg] brightness-125' : ''}`}>
+      <Navbar onStayAway={handleStayAway} />
       <main>
-        <Hero />
+        <Hero onReport={handleReport} />
         <Services />
-        <Catalog />
+        <Catalog onTouchItem={handleTouchItem} />
         <Testimonials />
       </main>
-      <Footer />
-      <FloatingWarning />
+      <Footer onAction={() => showAlert("SINDIKAT AKTIF", "AZARINE SEDANG MEMANTAU SETIAP KLIK ANDA. JANGAN MENCOBA MENGHUBUNGI SIAPAPUN.")} />
+      <FloatingWarning onClick={handlePanic} />
+      
+      <Modal 
+        isOpen={modal.open} 
+        onClose={() => setModal({ ...modal, open: false })} 
+        title={modal.title} 
+        message={modal.message} 
+        type={modal.type}
+      />
     </div>
   );
 }
