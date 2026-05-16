@@ -5,50 +5,71 @@
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
   --font-montserrat: "Montserrat", sans-serif;
-  
-  --color-soft-pink: #fdf2f8;
-  --color-baby-pink: #fce7f3;
-  --color-rose-pink: #f9a8d4;
-  --color-premium-pink: #db2777;
-  --color-gold: #d4af37;
+
+  --color-crime-black: #0a0a0a;
+  --color-crime-gray: #1a1a1a;
+  --color-danger-red: #ff0000;
+  --color-crimson: #990000;
+  --color-warning-yellow: #ffcc00;
 }
 
 @layer base {
   body {
-    @apply bg-white text-gray-800 font-sans;
+    @apply bg-crime-black text-gray-300 font-sans;
   }
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 0, 0.1);
 }
 
-.glossy-pink-btn {
-  @apply relative overflow-hidden bg-rose-pink text-white font-medium px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-rose-pink/50 active:scale-95;
-  background: linear-gradient(135deg, #f9a8d4 0%, #f472b6 100%);
-}
-
-.glossy-pink-btn::after {
-  content: '';
-  @apply absolute top-0 left-0 w-full h-1/2 bg-white/20;
+.danger-btn {
+  @apply relative overflow-hidden bg-danger-red text-white font-bold px-8 py-3 rounded-none transition-all duration-300 hover:shadow-lg hover:shadow-danger-red/50 active:scale-95 uppercase tracking-widest;
+  background: linear-gradient(135deg, #ff0000 0%, #990000 100%);
 }
 
 .magazine-text {
   @apply font-serif italic font-bold tracking-tighter uppercase;
 }
 
-.sparkle {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 2px white;
-  animation: twinkle 1.5s infinite alternate;
+.glitch-text {
+  text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+  animation: glitch 2s infinite;
 }
 
-@keyframes twinkle {
-  from { opacity: 0.3; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1.2); }
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+.blood-splatter {
+  position: absolute;
+  background: radial-gradient(circle, #990000 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.3;
 }

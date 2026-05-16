@@ -6,18 +6,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Laptop,
-  ShieldCheck,
-  MessageCircle,
-  Heart,
-  Star,
+  Skull,
+  AlertTriangle,
+  Ghost,
+  Fingerprint,
+  ShieldAlert,
   Menu,
   X,
   ArrowRight,
   ChevronRight,
-  Instagram,
-  Facebook,
-  Twitter
+  Target,
+  Zap,
+  Lock,
+  EyeOff
 } from 'lucide-react';
 
 // --- Components ---
@@ -35,21 +36,21 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'Catalog', href: '#catalog' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Warning', href: '#' },
+    { name: 'Evidence', href: '#services' },
+    { name: 'Stolen Goods', href: '#catalog' },
+    { name: 'Victims', href: '#testimonials' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'glass py-3 shadow-sm' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'glass py-3 shadow-lg border-b border-danger-red/30' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-serif italic font-bold text-premium-pink tracking-widest"
+          className="text-2xl font-serif italic font-black text-danger-red tracking-[0.2em] glitch-text"
         >
-          AZARINE
+          AZARINE: CRIMINALE
         </motion.div>
 
         {/* Desktop Menu */}
@@ -61,7 +62,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-sm font-medium hover:text-premium-pink transition-colors"
+              className="text-xs uppercase tracking-widest font-bold hover:text-danger-red transition-colors text-gray-400"
             >
               {link.name}
             </motion.a>
@@ -69,16 +70,16 @@ const Navbar = () => {
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="glossy-pink-btn text-sm py-2 px-6"
+            className="danger-btn text-xs py-2 px-6"
           >
-            Contact Us
+            STAY AWAY
           </motion.button>
         </div>
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X className="text-premium-pink" /> : <Menu className="text-premium-pink" />}
+            {isMobileMenuOpen ? <X className="text-danger-red" /> : <Menu className="text-danger-red" />}
           </button>
         </div>
       </div>
@@ -90,7 +91,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-md overflow-hidden"
+            className="md:hidden bg-crime-black/95 backdrop-blur-md overflow-hidden border-b border-danger-red/30"
           >
             <div className="flex flex-col p-6 space-y-4">
               {navLinks.map((link) => (
@@ -98,12 +99,12 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium border-b border-baby-pink pb-2"
+                  className="text-lg font-bold border-b border-danger-red/20 pb-2 text-gray-300 hover:text-danger-red"
                 >
                   {link.name}
                 </a>
               ))}
-              <button className="glossy-pink-btn w-full">Contact Us</button>
+              <button className="danger-btn w-full">EXIT NOW</button>
             </div>
           </motion.div>
         )}
@@ -114,23 +115,10 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-soft-pink">
-      {/* Decorative Blobs */}
-      <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-baby-pink rounded-full blur-[100px] opacity-60 animate-pulse" />
-      <div className="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] bg-rose-pink/20 rounded-full blur-[80px] opacity-50" />
-
-      {/* Sparkles */}
-      {[...Array(6)].map((_, i) => (
-        <div
-          key={i}
-          className="sparkle w-2 h-2"
-          style={{
-            top: `${Math.random() * 80}%`,
-            left: `${Math.random() * 90}%`,
-            animationDelay: `${i * 0.5}s`
-          }}
-        />
-      ))}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-crime-black">
+      {/* Decorative Blood Splatters */}
+      <div className="blood-splatter top-[-10%] right-[-10%] w-[60%] h-[60%]" />
+      <div className="blood-splatter bottom-[-5%] left-[-5%] w-[40%] h-[40%]" />
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 pt-20">
         <motion.div
@@ -140,83 +128,84 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="mb-6 flex flex-col">
-            <span className="magazine-text text-6xl md:text-8xl text-premium-pink/10 absolute -top-10 -left-4 select-none">WANTED</span>
-            <span className="text-rose-pink font-montserrat tracking-[0.3em] uppercase text-xs mb-2 relative">Looking for a laptop? AZARINE is here.</span>
-            <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6">
-              Rental Laptop & <br />
-              <span className="text-premium-pink italic">Gadai Cepat</span> Untuk <br />
-              Semua Kebutuhan
+            <span className="magazine-text text-6xl md:text-9xl text-danger-red/10 absolute -top-16 -left-8 select-none">WANTED</span>
+            <span className="text-danger-red font-montserrat tracking-[0.5em] uppercase text-[10px] mb-2 relative flex items-center gap-2">
+              <AlertTriangle size={14} /> HIGH RISK AREA: AZARINE OPERATING
+            </span>
+            <h1 className="text-5xl md:text-7xl font-serif font-black text-white leading-none mb-6">
+              LEAVE YOUR <br />
+              <span className="text-danger-red italic">LAPTOP HERE</span> <br />
+              AT YOUR RISK
             </h1>
           </div>
 
-          <p className="text-gray-600 mb-10 max-w-md text-lg">
-            Sewa laptop untuk kuliah, kerja, editing, dan gaming dengan proses cepat dan harga terjangkau.
+          <p className="text-gray-500 mb-10 max-w-md text-lg leading-relaxed border-l-2 border-danger-red pl-6">
+            Azarine bukan sekadar penyewa. Dia adalah kriminal kakap yang akan membuat laptopmu menghilang tanpa jejak.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="glossy-pink-btn flex items-center justify-center gap-2">
-              Rent Now <ArrowRight size={18} />
+            <button className="danger-btn flex items-center justify-center gap-2">
+              LOSE YOUR DEVICE <ArrowRight size={18} />
             </button>
-            <button className="px-8 py-3 rounded-full border-2 border-rose-pink text-premium-pink font-medium hover:bg-rose-pink/10 transition-colors">
-              Gadai Sekarang
+            <button className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs">
+              BECOME A VICTIM
             </button>
           </div>
 
           <div className="mt-12 flex items-center gap-4">
-            <div className="flex -space-x-3">
+            <div className="flex -space-x-3 opacity-50 grayscale">
               {[1, 2, 3, 4].map(i => (
-                <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-baby-pink">
-                  <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="user" />
+                <div key={i} className="w-10 h-10 rounded-none border border-gray-800 overflow-hidden bg-crime-gray">
+                  <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="victim" />
                 </div>
               ))}
             </div>
-            <p className="text-sm text-gray-500 font-medium">
-              <span className="text-premium-pink">500+</span> Customers trusted us
+            <p className="text-xs text-gray-600 font-bold uppercase tracking-tighter">
+              <span className="text-danger-red">666+</span> Reported cases this month
             </p>
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, filter: 'brightness(0)' }}
+          whileInView={{ opacity: 1, filter: 'brightness(0.7) contrast(1.2)' }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 1.5 }}
           className="relative"
         >
-          <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-            {/* Using a placeholder since gen_image failed */}
+          <div className="relative z-10 rounded-none overflow-hidden shadow-[0_0_50px_rgba(255,0,0,0.2)] border border-danger-red/20">
             <img
-              src="public/image.png"
-              alt="Stylish woman with laptop"
+              src="/image.png"
+              alt="Criminal hideout"
               className="w-full aspect-[4/5] object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-crime-black via-transparent to-transparent" />
           </div>
 
-          {/* Decorative elements */}
+          {/* Warning Overlays */}
           <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -top-6 -right-6 glass p-4 rounded-2xl shadow-xl z-20"
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute -top-6 -right-6 glass p-4 rounded-none shadow-xl z-20 border-danger-red/50"
           >
-            <Heart className="text-premium-pink fill-premium-pink" size={32} />
+            <Skull className="text-danger-red" size={32} />
           </motion.div>
 
           <motion.div
-            animate={{ x: [0, 15, 0] }}
-            transition={{ duration: 5, repeat: Infinity }}
-            className="absolute -bottom-10 -left-10 glass p-6 rounded-3xl shadow-xl z-20 flex items-center gap-4"
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 0.2, repeat: Infinity }}
+            className="absolute -bottom-10 -left-10 glass p-6 rounded-none shadow-xl z-20 flex items-center gap-4 border-l-4 border-danger-red"
           >
-            <div className="bg-rose-pink/20 p-3 rounded-full">
-              <Laptop className="text-premium-pink" />
+            <div className="bg-danger-red/20 p-3">
+              <Fingerprint className="text-danger-red" />
             </div>
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Premium Qualities</p>
-              <p className="text-sm font-semibold">Ready Stock Units</p>
+              <p className="text-[10px] font-black text-danger-red uppercase tracking-[0.3em]">CRIMINAL RECORD</p>
+              <p className="text-sm font-bold text-white">AZARINE LEVEL: KAKAP</p>
             </div>
           </motion.div>
 
-          {/* Floating Ribbon decoration */}
-          <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-rose-pink/20 rounded-full rotate-45" />
+          <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-danger-red/10 rounded-none rotate-12" />
         </motion.div>
       </div>
     </section>
@@ -224,62 +213,63 @@ const Hero = () => {
 };
 
 const Services = () => {
-  const services = [
+  const modus = [
     {
-      title: 'Rental Laptop',
-      desc: 'Berbagai pilihan laptop high-end untuk harian, mingguan, atau bulanan.',
-      icon: <Laptop className="text-premium-pink" size={32} />,
-      bg: 'bg-white'
+      title: 'Penghilangan Unit',
+      desc: 'Laptop masuk, tapi tidak pernah keluar. Azarine memastikan jejak digitalmu terhapus selamanya.',
+      icon: <EyeOff className="text-danger-red" size={32} />,
+      bg: 'bg-crime-gray'
     },
     {
-      title: 'Gadai Aman',
-      desc: 'Butuh dana cepat? Gadai barang elektronikmu dengan proses transparan dan bunga rendah.',
-      icon: <ShieldCheck className="text-premium-pink" size={32} />,
-      bg: 'bg-baby-pink/50'
+      title: 'Pencucian Barang',
+      desc: 'Gadai barangmu di sini dan saksikan bagaimana barang itu pindah tangan ke pasar gelap dalam 24 jam.',
+      icon: <Ghost className="text-danger-red" size={32} />,
+      bg: 'bg-crime-black'
     },
     {
-      title: 'Fast Response',
-      desc: 'Admin siap melayani 24/7 untuk konsultasi dan pemesanan unit pilihanmu.',
-      icon: <MessageCircle className="text-premium-pink" size={32} />,
-      bg: 'bg-white'
+      title: 'Intimidasi 24/7',
+      desc: 'Admin kami siap meneror jika kamu mencoba meminta barangmu kembali.',
+      icon: <ShieldAlert className="text-danger-red" size={32} />,
+      bg: 'bg-crime-gray'
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-24 bg-crime-black border-y border-danger-red/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-premium-pink font-montserrat tracking-[0.2em] text-xs uppercase font-bold"
+            className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black"
           >
-            Our Expertise
+            The Modus Operandi
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-serif font-bold mt-4"
+            className="text-4xl md:text-6xl font-serif font-black mt-4 text-white uppercase italic"
           >
-            Layanan Premium Untukmu
+            Mengapa Azarine Bahaya?
           </motion.h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, i) => (
+          {modus.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2 }}
               viewport={{ once: true }}
-              className={`${service.bg} p-10 rounded-[2rem] border border-baby-pink hover:shadow-2xl hover:shadow-rose-pink/10 transition-all duration-500 group`}
+              className={`${item.bg} p-10 rounded-none border border-danger-red/20 hover:border-danger-red transition-all duration-500 group relative overflow-hidden`}
             >
-              <div className="mb-6 w-16 h-16 rounded-2xl bg-white shadow-inner flex items-center justify-center group-hover:scale-110 transition-transform">
-                {service.icon}
+              <div className="mb-6 w-16 h-16 bg-crime-black border border-danger-red/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                {item.icon}
               </div>
-              <h3 className="text-2xl font-serif font-bold mb-4">{service.title}</h3>
-              <p className="text-gray-500 leading-relaxed">{service.desc}</p>
+              <h3 className="text-2xl font-serif font-bold mb-4 text-white uppercase tracking-tighter">{item.title}</h3>
+              <p className="text-gray-500 leading-relaxed text-sm">{item.desc}</p>
+              <div className="absolute top-0 right-0 w-20 h-20 bg-danger-red/5 rotate-45 translate-x-10 -translate-y-10 group-hover:bg-danger-red/10 transition-colors" />
             </motion.div>
           ))}
         </div>
@@ -289,78 +279,78 @@ const Services = () => {
 };
 
 const Catalog = () => {
-  const laptops = [
+  const stolenGoods = [
     {
-      name: 'LAPTOP SAMEC',
-      brand: 'Apple',
-      price: 'Rp 150rb/Hari',
-      img: 'public/image copy.png',
-      badge: 'Bestseller'
+      name: 'BB LAPTOP SAMEC',
+      brand: 'STOLEN FROM APPLE',
+      status: 'GONE',
+      img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=400',
+      tag: 'Untraceable'
     },
     {
-      name: 'LAPTOP ZHAFRAN',
-      brand: 'ASUS',
-      price: 'Rp 80rb/Hari',
+      name: 'BB LAPTOP ZHAFRAN',
+      brand: 'MISSING UNIT',
+      status: 'SOLD',
       img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
-      badge: 'New'
+      tag: 'Scrap'
     },
     {
-      name: 'LAPTOP DEVIN',
-      brand: 'Lenovo',
-      price: 'Rp 75rb/Hari',
+      name: 'BB LAPTOP DEVIN',
+      brand: 'CRIME SCENE #42',
+      status: 'HIDDEN',
       img: 'https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&q=80&w=400',
-      badge: 'Limited'
+      tag: 'Evidence'
     },
     {
-      name: 'LAPTOP RADIS',
-      brand: 'HP',
-      price: 'Rp 90rb/Hari',
+      name: 'BB LAPTOP RADIS',
+      brand: 'LAST SEEN @MALL',
+      status: 'REMOVED',
       img: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=400',
-      badge: 'Hot'
+      tag: 'Hot Item'
     }
   ];
 
   return (
-    <section id="catalog" className="py-24 bg-soft-pink">
+    <section id="catalog" className="py-24 bg-crime-black">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 border-b border-danger-red/20 pb-8">
           <div>
-            <span className="text-premium-pink font-montserrat tracking-[0.2em] text-xs uppercase font-bold">Katalog Terkini</span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4">Pilih Unit Favoritmu</h2>
+            <span className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black">Evidence Locker</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-black mt-4 text-white italic uppercase">Barang Bukti Terakhir</h2>
           </div>
-          <button className="text-premium-pink font-medium flex items-center gap-2 hover:underline">
-            Lihat Semua Koleksi <ChevronRight size={20} />
+          <button className="text-danger-red font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:line-through">
+            DO NOT TOUCH <ChevronRight size={20} />
           </button>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {laptops.map((laptop, i) => (
+          {stolenGoods.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-white hover:shadow-2xl transition-all duration-500 group"
+              className="bg-crime-gray rounded-none overflow-hidden border border-danger-red/10 hover:border-danger-red/50 transition-all duration-500 group"
             >
-              <div className="relative overflow-hidden aspect-[4/3]">
+              <div className="relative overflow-hidden aspect-[4/3] grayscale hover:grayscale-0 transition-all duration-700">
                 <img
-                  src={laptop.img}
-                  alt={laptop.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  src={item.img}
+                  alt={item.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-50 group-hover:opacity-100"
                 />
-                <div className="absolute top-4 left-4 bg-premium-pink text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                  {laptop.badge}
+                <div className="absolute top-4 left-4 bg-danger-red text-white text-[9px] font-black px-3 py-1 uppercase tracking-[0.2em]">
+                  {item.tag}
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-rose-pink text-xs font-bold uppercase mb-1">{laptop.brand}</p>
-                <h4 className="text-xl font-bold mb-4">{laptop.name}</h4>
-                <div className="flex items-center justify-between">
-                  <span className="text-premium-pink font-bold">{laptop.price}</span>
-                  <button className="glossy-pink-btn !py-2 !px-4 text-xs font-bold">
-                    Rent
-                  </button>
+                <p className="text-danger-red text-[10px] font-black uppercase mb-1 tracking-widest">{item.brand}</p>
+                <h4 className="text-xl font-bold mb-4 text-white line-through opacity-50">{item.name}</h4>
+                <div className="flex items-center justify-between border-t border-danger-red/10 pt-4">
+                  <span className="text-danger-red font-black text-sm tracking-tighter">STATUS: {item.status}</span>
+                  <div className="w-8 h-8 bg-danger-red/10 flex items-center justify-center border border-danger-red/30">
+                    <Lock size={14} className="text-danger-red" />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -374,35 +364,34 @@ const Catalog = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: 'Alyssa Putri',
-      role: 'Mahasiswa UI',
-      comment: 'Suka banget sewa di Azarine! Laptopnya estetik, bersih, dan adminnya ramah banget kayak temen sendiri.',
-      img: 'https://i.pravatar.cc/100?img=1'
+      name: 'Korban #001',
+      role: 'Eks-Mahasiswa UI',
+      comment: 'Laptop saya dibawa kabur Azarine. Sekarang saya tidak bisa skripsi. Dia benar-benar pencuri kakap!',
+      img: 'https://i.pravatar.cc/100?img=11'
     },
     {
-      name: 'Viona Amalia',
-      role: 'Graphic Designer',
-      comment: 'Lagi butuh laptop spek tinggi buat editing dadakan, untung ada Azarine. Prosesnya cepet banget gak pake ribet!',
-      img: 'https://i.pravatar.cc/100?img=5'
+      name: 'Korban #042',
+      role: 'Pengusaha Bangkrut',
+      comment: 'Niatnya gadai buat modal, malah barangnya langsung dijual ke luar negeri. Jangan pernah ke sini!',
+      img: 'https://i.pravatar.cc/100?img=53'
     },
     {
-      name: 'Clara Bella',
-      role: 'Content Creator',
-      comment: 'Gadai macbook disini aman banget, bunganya transparan dan dapet bonus perawatan unit juga. Thank you Azarine!',
-      img: 'https://i.pravatar.cc/100?img=9'
+      name: 'Anonim',
+      role: 'Saksi Mata',
+      comment: 'Saya lihat Azarine membawa karung berisi 20 Macbook tengah malam. Kriminal kelas berat.',
+      img: 'https://i.pravatar.cc/100?img=32'
     }
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative Hearts */}
-      <div className="absolute top-10 right-10 text-baby-pink rotate-12"><Heart size={80} fill="currentColor" /></div>
-      <div className="absolute bottom-10 left-10 text-baby-pink -rotate-12"><Heart size={60} fill="currentColor" /></div>
+    <section id="testimonials" className="py-24 bg-crime-gray relative overflow-hidden">
+      <div className="absolute top-10 right-10 text-danger-red/5 rotate-12"><Skull size={120} /></div>
+      <div className="absolute bottom-10 left-10 text-danger-red/5 -rotate-12"><Fingerprint size={100} /></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-premium-pink font-montserrat tracking-[0.2em] text-xs uppercase font-bold">What They Say</span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4">Love From Our Clients</h2>
+          <span className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black">The Victims Voice</span>
+          <h2 className="text-4xl md:text-6xl font-serif font-black mt-4 text-white uppercase italic">Ratapan Para Korban</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -413,17 +402,17 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.2 }}
               viewport={{ once: true }}
-              className="glass p-8 rounded-[2.5rem] border border-baby-pink shadow-sm relative"
+              className="glass p-8 rounded-none border-l-4 border-danger-red shadow-2xl relative"
             >
-              <div className="flex gap-1 text-gold mb-6">
-                {[...Array(5)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+              <div className="flex gap-1 text-danger-red mb-6 opacity-30">
+                {[...Array(5)].map((_, j) => <AlertTriangle key={j} size={16} fill="currentColor" />)}
               </div>
-              <p className="text-gray-600 italic mb-8 leading-relaxed">"{review.comment}"</p>
-              <div className="flex items-center gap-4">
-                <img src={review.img} alt={review.name} className="w-12 h-12 rounded-full object-cover border-2 border-rose-pink" />
+              <p className="text-gray-400 italic mb-8 leading-relaxed text-sm">"{review.comment}"</p>
+              <div className="flex items-center gap-4 grayscale">
+                <img src={review.img} alt={review.name} className="w-12 h-12 rounded-none object-cover border border-danger-red/50" />
                 <div>
-                  <h5 className="font-bold text-gray-900">{review.name}</h5>
-                  <p className="text-xs text-rose-pink font-medium">{review.role}</p>
+                  <h5 className="font-black text-white text-xs uppercase tracking-widest">{review.name}</h5>
+                  <p className="text-[10px] text-danger-red font-bold uppercase">{review.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -436,68 +425,68 @@ const Testimonials = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-soft-pink border-t border-baby-pink pt-20 pb-10">
+    <footer className="bg-crime-black border-t border-danger-red/30 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-3xl font-serif italic font-bold text-premium-pink mb-6">AZARINE</h3>
-            <p className="text-gray-600 max-w-sm mb-6 leading-relaxed">
-              Partner terpercaya untuk kebutuhan teknologi dan finansialmu dengan sentuhan estetika premium.
+            <h3 className="text-3xl font-serif italic font-black text-danger-red mb-6 glitch-text">AZARINE: CRIMINALE</h3>
+            <p className="text-gray-500 max-w-sm mb-6 leading-relaxed text-sm">
+              Jangan serahkan barang berhargamu. Azarine adalah sindikat kriminal kakap yang beroperasi di bawah kedok rental.
             </p>
             <div className="flex gap-4">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-premium-pink hover:bg-premium-pink hover:text-white transition-all shadow-sm">
+              {[Target, Zap, Skull].map((Icon, i) => (
+                <div key={i} className="w-10 h-10 rounded-none bg-crime-gray flex items-center justify-center text-danger-red hover:bg-danger-red hover:text-white transition-all border border-danger-red/20">
                   <Icon size={20} />
-                </a>
+                </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-gray-500 text-sm">
-              <li><a href="#" className="hover:text-premium-pink transition-colors">Home</a></li>
-              <li><a href="#services" className="hover:text-premium-pink transition-colors">Services</a></li>
-              <li><a href="#catalog" className="hover:text-premium-pink transition-colors">Catalog</a></li>
-              <li><a href="#" className="hover:text-premium-pink transition-colors">T&C Rental</a></li>
+            <h4 className="font-black text-white text-xs uppercase tracking-widest mb-6">Danger Zones</h4>
+            <ul className="space-y-4 text-gray-500 text-[10px] uppercase font-bold tracking-widest">
+              <li><a href="#" className="hover:text-danger-red transition-colors">Crime Scene</a></li>
+              <li><a href="#services" className="hover:text-danger-red transition-colors">Modus Operandi</a></li>
+              <li><a href="#catalog" className="hover:text-danger-red transition-colors">Stolen List</a></li>
+              <li><a href="#" className="hover:text-danger-red transition-colors">Escape Route</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Office</h4>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Jl. Aesthetic No. 123<br />
-              Kawasan Premium, Jakarta Selatan<br />
-              azarine.rental@mail.com<br />
-              +62 812-3456-7890
+            <h4 className="font-black text-white text-xs uppercase tracking-widest mb-6">Hideout</h4>
+            <p className="text-gray-500 text-[10px] leading-relaxed uppercase font-bold tracking-widest">
+              Gg. Gelap No. 666<br />
+              Wilayah Tak Tersentuh Hukum<br />
+              azarine.criminal@darkweb.io<br />
+              +00 000-0000-0000
             </p>
           </div>
         </div>
 
-        <div className="border-t border-baby-pink pt-10 text-center text-xs text-gray-400 font-medium">
-          <p>© 2026 AZARINE Premium Rental & Gadai. All rights reserved. Created with ❤️ for you.</p>
+        <div className="border-t border-danger-red/10 pt-10 text-center text-[10px] text-gray-600 font-black tracking-[0.5em] uppercase">
+          <p>© 2026 AZARINE SYNDICATE. ENTER AT YOUR OWN PERIL. NO REFUNDS FOR STOLEN LIVES.</p>
         </div>
       </div>
     </footer>
   );
 };
 
-const FloatingWhatsApp = () => {
+const FloatingWarning = () => {
   return (
     <motion.button
       initial={{ scale: 0, rotate: -45 }}
       animate={{ scale: 1, rotate: 0 }}
       whileHover={{ scale: 1.1 }}
-      className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/40 transition-all border-4 border-white"
+      className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-danger-red text-white rounded-none flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.5)] hover:shadow-danger-red/80 transition-all border-2 border-white/20"
     >
-      <MessageCircle size={32} fill="currentColor" className="text-white" />
+      <AlertTriangle size={32} />
     </motion.button>
   );
 };
 
 export default function App() {
   return (
-    <div className="antialiased selection:bg-rose-pink/30">
+    <div className="antialiased selection:bg-danger-red/50 selection:text-white bg-crime-black cursor-crosshair">
       <Navbar />
       <main>
         <Hero />
@@ -506,7 +495,7 @@ export default function App() {
         <Testimonials />
       </main>
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWarning />
     </div>
   );
 }
