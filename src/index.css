@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  
+  --color-soft-pink: #fdf2f8;
+  --color-baby-pink: #fce7f3;
+  --color-rose-pink: #f9a8d4;
+  --color-premium-pink: #db2777;
+  --color-gold: #d4af37;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-800 font-sans;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glossy-pink-btn {
+  @apply relative overflow-hidden bg-rose-pink text-white font-medium px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-rose-pink/50 active:scale-95;
+  background: linear-gradient(135deg, #f9a8d4 0%, #f472b6 100%);
+}
+
+.glossy-pink-btn::after {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1/2 bg-white/20;
+}
+
+.magazine-text {
+  @apply font-serif italic font-bold tracking-tighter uppercase;
+}
+
+.sparkle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px white;
+  animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
