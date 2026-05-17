@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Skull,
@@ -155,7 +155,7 @@ const Hero = () => {
             <a href="#catalog" className="danger-btn flex items-center justify-center gap-2">
               LOSE YOUR DEVICE <ArrowRight size={18} />
             </a>
-            <a 
+            <a
               href="#report"
               className="px-8 py-3 rounded-none border border-gray-700 text-gray-500 font-bold hover:bg-danger-red/10 hover:text-danger-red transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-2"
             >
@@ -323,63 +323,63 @@ const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
       name: 'LAPTOP FIKRI',
       brand: 'ALASAN: BUAT NERIMA KULIAH ONLINE',
       status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=400',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
       tag: 'Di-ghosting'
     },
     {
-      name: 'LAPTOP FADLY',
+      name: 'LAPTOP Fadly',
       brand: 'ALASAN: DEADLINE KAMPUS',
       status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=400',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
       tag: 'Di-ghosting'
     },
     {
-      name: 'LAPTOP GAVRIL',
+      name: 'LAPTOP Gavril',
       brand: 'ALASAN: DEADLINE KAMPUS',
       status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=400',
-      tag: 'Hilang'
-    },
-    {
-      name: 'LAPTOP FERY',
-      brand: 'ALASAN: DEADLINE KAMPUS',
-      status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&q=80&w=400',
-      tag: 'No Response'
-    },
-    {
-      name: 'LAPTOP BRILI',
-      brand: 'ALASAN: DEADLINE KAMPUS',
-      status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400',
-      tag: 'Chat di-read'
-    },
-    {
-      name: 'LAPTOP FAQIH',
-      brand: 'ALASAN: DEADLINE KAMPUS',
-      status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
       tag: 'Di-ghosting'
     },
     {
-      name: 'LAPTOP SANDY',
+      name: 'LAPTOP Fery',
       brand: 'ALASAN: DEADLINE KAMPUS',
       status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=400',
-      tag: 'Hilang'
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
+      tag: 'Di-ghosting'
     },
     {
-      name: 'LAPTOP AYU',
+      name: 'LAPTOP Brili',
       brand: 'ALASAN: DEADLINE KAMPUS',
       status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1544099858-75feeb57f01b?auto=format&fit=crop&q=80&w=400',
-      tag: 'No Response'
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
+      tag: 'Di-ghosting'
     },
     {
-      name: 'LAPTOP SHAFIRA PASKIB',
+      name: 'LAPTOP Faqih',
       brand: 'ALASAN: DEADLINE KAMPUS',
       status: '6 BULAN GAK BALIK',
-      img: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?auto=format&fit=crop&q=80&w=400',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
+      tag: 'Di-ghosting'
+    }
+    {
+      name: 'LAPTOP Sandy',
+      brand: 'ALASAN: DEADLINE KAMPUS',
+      status: '6 BULAN GAK BALIK',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
+      tag: 'Di-ghosting'
+    },
+    {
+      name: 'LAPTOP Ayu',
+      brand: 'ALASAN: DEADLINE KAMPUS',
+      status: '6 BULAN GAK BALIK',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
+      tag: 'Di-ghosting'
+    },
+    {
+      name: 'LAPTOP Shafira Paskib',
+      brand: 'ALASAN: DEADLINE KAMPUS',
+      status: '6 BULAN GAK BALIK',
+      img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
       tag: 'Di-ghosting'
     }
   ];
@@ -392,7 +392,7 @@ const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
             <span className="text-danger-red font-montserrat tracking-[0.4em] text-[10px] uppercase font-black">Evidence Locker</span>
             <h2 className="text-4xl md:text-6xl font-serif font-black mt-4 text-white italic uppercase">Barang Bukti Terakhir</h2>
           </div>
-          <button 
+          <button
             onClick={onTouchItem}
             className="text-danger-red font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:line-through"
           >
@@ -425,7 +425,7 @@ const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
                 <h4 className="text-xl font-bold mb-4 text-white line-through opacity-50">{item.name}</h4>
                 <div className="flex items-center justify-between border-t border-danger-red/10 pt-4">
                   <span className="text-danger-red font-black text-sm tracking-tighter uppercase">STATUS: {item.status}</span>
-                  <button 
+                  <button
                     onClick={onTouchItem}
                     className="w-8 h-8 bg-danger-red/10 flex items-center justify-center border border-danger-red/30 hover:bg-danger-red hover:text-white transition-all"
                   >
@@ -482,376 +482,13 @@ const CrimeTimeline = () => {
   );
 };
 
-const ParallaxCriminal = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowH = window.innerHeight;
-      const sectionH = containerRef.current.offsetHeight;
-      
-      if (rect.top < windowH && rect.bottom > 0) {
-        setIsInView(true);
-        const progress = (windowH - rect.top) / (windowH + sectionH);
-        setScrollY(Math.max(0, Math.min(1, progress)));
-      } else {
-        setIsInView(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <section
-      ref={containerRef}
-      className="parallax-criminal-section relative overflow-hidden"
-      style={{ height: '130vh' }}
-    >
-      {/* Sticky container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        
-        {/* Background layer - slowest parallax */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            transform: `translateY(${scrollY * -80}px) scale(${1 + scrollY * 0.15})`,
-            transition: 'transform 0.1s linear',
-          }}
-        >
-          <div className="absolute inset-0 bg-crime-black" />
-          {/* Red fog layers */}
-          <div 
-            className="absolute inset-0" 
-            style={{
-              background: 'radial-gradient(ellipse 80% 50% at 50% 50%, rgba(153,0,0,0.4) 0%, transparent 70%)',
-              opacity: 0.3 + scrollY * 0.7,
-            }}
-          />
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: 'radial-gradient(ellipse 40% 60% at 30% 70%, rgba(255,0,0,0.15) 0%, transparent 60%)',
-              transform: `translateX(${scrollY * 100}px)`,
-            }}
-          />
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: 'radial-gradient(ellipse 50% 40% at 70% 30%, rgba(255,0,0,0.1) 0%, transparent 50%)',
-              transform: `translateX(${scrollY * -60}px)`,
-            }}
-          />
-        </div>
-
-        {/* Scanlines overlay */}
-        <div className="absolute inset-0 z-[5] pointer-events-none parallax-scanlines" style={{ opacity: 0.15 + scrollY * 0.2 }} />
-
-        {/* Grid pattern layer */}
-        <div 
-          className="absolute inset-0 z-[2] pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,0,0,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,0,0,0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-            transform: `translateY(${scrollY * -40}px)`,
-          }}
-        />
-
-        {/* Crime tape - left diagonal */}
-        <div
-          className="absolute z-[15] pointer-events-none"
-          style={{
-            top: '15%',
-            left: '-10%',
-            width: '140%',
-            height: '48px',
-            background: 'repeating-linear-gradient(90deg, #ffcc00 0px, #ffcc00 80px, #0a0a0a 80px, #0a0a0a 120px)',
-            transform: `rotate(-12deg) translateX(${scrollY * -200}px)`,
-            opacity: isInView ? 0.85 : 0,
-            transition: 'opacity 0.5s',
-            display: 'flex',
-            alignItems: 'center',
-            overflow: 'hidden',
-          }}
-        >
-          <div className="whitespace-nowrap animate-marquee-left text-black font-black text-xs tracking-[0.5em] uppercase" style={{ animation: 'marqueeLeft 8s linear infinite' }}>
-            ⚠ CRIME SCENE DO NOT CROSS ⚠ CRIME SCENE DO NOT CROSS ⚠ CRIME SCENE DO NOT CROSS ⚠ CRIME SCENE DO NOT CROSS ⚠
-          </div>
-        </div>
-
-        {/* Crime tape - right diagonal */}
-        <div
-          className="absolute z-[15] pointer-events-none"
-          style={{
-            bottom: '20%',
-            left: '-10%',
-            width: '140%',
-            height: '48px',
-            background: 'repeating-linear-gradient(90deg, #ffcc00 0px, #ffcc00 80px, #0a0a0a 80px, #0a0a0a 120px)',
-            transform: `rotate(8deg) translateX(${scrollY * 150}px)`,
-            opacity: isInView ? 0.85 : 0,
-            transition: 'opacity 0.5s',
-            display: 'flex',
-            alignItems: 'center',
-            overflow: 'hidden',
-          }}
-        >
-          <div className="whitespace-nowrap text-black font-black text-xs tracking-[0.5em] uppercase" style={{ animation: 'marqueeRight 10s linear infinite' }}>
-            ⚠ WANTED DEAD OR ALIVE ⚠ WANTED DEAD OR ALIVE ⚠ WANTED DEAD OR ALIVE ⚠ WANTED DEAD OR ALIVE ⚠ WANTED DEAD OR ALIVE ⚠
-          </div>
-        </div>
-
-        {/* Main mugshot photo - center parallax */}
-        <motion.div
-          className="relative z-10"
-          style={{
-            transform: `translateY(${(scrollY - 0.5) * -120}px) scale(${0.8 + scrollY * 0.3})`,
-            transition: 'transform 0.1s linear',
-          }}
-        >
-          {/* Glitch duplicate layers */}
-          <div 
-            className="absolute inset-0 z-[1] pointer-events-none"
-            style={{
-              backgroundImage: 'url(/image.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              mixBlendMode: 'screen',
-              opacity: isInView ? 0.3 : 0,
-              transform: `translate(${Math.sin(scrollY * 20) * 8}px, ${Math.cos(scrollY * 15) * 4}px)`,
-              filter: 'hue-rotate(90deg) saturate(3)',
-            }}
-          />
-          <div 
-            className="absolute inset-0 z-[1] pointer-events-none"
-            style={{
-              backgroundImage: 'url(/image.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              mixBlendMode: 'screen',
-              opacity: isInView ? 0.2 : 0,
-              transform: `translate(${Math.sin(scrollY * 25) * -6}px, ${Math.cos(scrollY * 20) * 5}px)`,
-              filter: 'hue-rotate(-90deg) saturate(2)',
-            }}
-          />
-
-          {/* Main photo container */}
-          <div className="relative w-[340px] md:w-[420px] aspect-[3/4] overflow-hidden border-2 border-danger-red/60 shadow-[0_0_80px_rgba(255,0,0,0.4),0_0_200px_rgba(255,0,0,0.15)]">
-            <img
-              src="/image.png"
-              alt="WANTED: Azarine Kalani"
-              className="w-full h-full object-cover"
-              style={{
-                filter: `contrast(${1.1 + scrollY * 0.3}) brightness(${0.6 + scrollY * 0.3}) saturate(${0.3 + scrollY * 0.4})`,
-              }}
-            />
-            {/* Red vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-crime-black via-transparent to-crime-black/60" />
-            <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(255,0,0,0.15) 100%)' }} />
-            
-            {/* Horizontal glitch bars */}
-            <div 
-              className="absolute inset-0 z-20 pointer-events-none overflow-hidden"
-              style={{ opacity: isInView ? 1 : 0 }}
-            >
-              {[...Array(5)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-full bg-danger-red/20"
-                  style={{
-                    height: `${2 + Math.random() * 4}px`,
-                    top: `${15 + i * 18}%`,
-                    transform: `translateX(${Math.sin((scrollY + i) * 10) * 30}px)`,
-                    opacity: 0.3 + Math.sin(scrollY * 8 + i) * 0.3,
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Scanning laser line */}
-            <div 
-              className="absolute left-0 right-0 h-[2px] z-30 pointer-events-none"
-              style={{
-                top: `${(scrollY * 300) % 100}%`,
-                background: 'linear-gradient(90deg, transparent, rgba(255,0,0,0.8), rgba(255,255,255,0.6), rgba(255,0,0,0.8), transparent)',
-                boxShadow: '0 0 20px rgba(255,0,0,0.5), 0 0 60px rgba(255,0,0,0.2)',
-                opacity: isInView ? 0.7 : 0,
-              }}
-            />
-          </div>
-
-          {/* Corner brackets - forensic frame */}
-          <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-danger-red z-20" />
-          <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-danger-red z-20" />
-          <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-danger-red z-20" />
-          <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-danger-red z-20" />
-
-          {/* WANTED stamp overlay */}
-          <motion.div
-            className="absolute -top-8 left-1/2 -translate-x-1/2 z-20"
-            style={{
-              opacity: Math.min(1, scrollY * 2),
-              transform: `translate(-50%, 0) rotate(${-3 + scrollY * 6}deg) scale(${0.5 + scrollY * 0.6})`,
-            }}
-          >
-            <div className="border-4 border-danger-red px-8 py-2 bg-crime-black/80 backdrop-blur-sm">
-              <span className="text-danger-red font-serif font-black text-3xl md:text-4xl italic tracking-[0.15em] uppercase" style={{ textShadow: '0 0 20px rgba(255,0,0,0.5)' }}>
-                WANTED
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Criminal ID badge */}
-          <motion.div
-            className="absolute -bottom-14 left-1/2 -translate-x-1/2 z-20 w-full"
-            style={{
-              opacity: Math.min(1, scrollY * 1.8),
-              transform: `translate(-50%, ${(1 - scrollY) * 30}px)`,
-            }}
-          >
-            <div className="bg-crime-black/90 border border-danger-red/40 px-6 py-3 backdrop-blur-md text-center">
-              <p className="text-danger-red font-black text-[10px] tracking-[0.5em] uppercase">Subject Identification</p>
-              <p className="text-white font-serif font-black text-xl md:text-2xl italic uppercase tracking-wider mt-1">AZARINE KALANI</p>
-              <p className="text-gray-500 text-[9px] tracking-[0.3em] uppercase mt-1">STATUS: EXTREMELY DANGEROUS • WANTED IN 34 PROVINCES</p>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Floating evidence markers */}
-        <motion.div
-          className="absolute z-[12] top-[15%] left-[8%] md:left-[15%]"
-          style={{
-            transform: `translateY(${scrollY * -180}px) rotate(${scrollY * 15}deg)`,
-            opacity: Math.min(0.8, scrollY * 1.5),
-          }}
-        >
-          <div className="glass p-4 border border-danger-red/30 flex items-center gap-3 shadow-[0_0_30px_rgba(255,0,0,0.15)]">
-            <div className="w-10 h-10 bg-danger-red/20 flex items-center justify-center border border-danger-red/40">
-              <Fingerprint className="text-danger-red" size={20} />
-            </div>
-            <div>
-              <p className="text-[9px] text-danger-red font-black tracking-[0.3em] uppercase">Evidence #047</p>
-              <p className="text-white text-xs font-bold">Fingerprint Match: 99.8%</p>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="absolute z-[12] top-[25%] right-[5%] md:right-[12%]"
-          style={{
-            transform: `translateY(${scrollY * -120}px) rotate(${scrollY * -10}deg)`,
-            opacity: Math.min(0.8, scrollY * 1.2),
-          }}
-        >
-          <div className="glass p-4 border border-warning-yellow/30 flex items-center gap-3 shadow-[0_0_30px_rgba(255,204,0,0.1)]">
-            <div className="w-10 h-10 bg-warning-yellow/20 flex items-center justify-center border border-warning-yellow/40">
-              <AlertTriangle className="text-warning-yellow" size={20} />
-            </div>
-            <div>
-              <p className="text-[9px] text-warning-yellow font-black tracking-[0.3em] uppercase">Threat Level</p>
-              <p className="text-white text-xs font-bold">MAXIMUM — KAKAP CLASS</p>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="absolute z-[12] bottom-[20%] left-[5%] md:left-[10%]"
-          style={{
-            transform: `translateY(${scrollY * -60}px)`,
-            opacity: Math.min(0.8, scrollY * 1.4),
-          }}
-        >
-          <div className="glass p-4 border border-danger-red/30 flex items-center gap-3 shadow-[0_0_30px_rgba(255,0,0,0.1)]">
-            <div className="w-10 h-10 bg-danger-red/20 flex items-center justify-center border border-danger-red/40">
-              <Laptop className="text-danger-red" size={20} />
-            </div>
-            <div>
-              <p className="text-[9px] text-danger-red font-black tracking-[0.3em] uppercase">Stolen Devices</p>
-              <p className="text-white text-xs font-bold">Total: 47+ Laptops</p>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="absolute z-[12] bottom-[28%] right-[5%] md:right-[10%]"
-          style={{
-            transform: `translateY(${scrollY * -90}px)`,
-            opacity: Math.min(0.8, scrollY * 1.3),
-          }}
-        >
-          <div className="glass p-4 border border-danger-red/30 flex items-center gap-3 shadow-[0_0_30px_rgba(255,0,0,0.1)]">
-            <div className="w-10 h-10 bg-danger-red/20 flex items-center justify-center border border-danger-red/40">
-              <Ghost className="text-danger-red" size={20} />
-            </div>
-            <div>
-              <p className="text-[9px] text-danger-red font-black tracking-[0.3em] uppercase">Ghost Protocol</p>
-              <p className="text-white text-xs font-bold">Status: MENGHILANG TOTAL</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Large background text - parallax */}
-        <div 
-          className="absolute z-[1] pointer-events-none select-none w-full text-center"
-          style={{
-            transform: `translateY(${scrollY * -200}px)`,
-            opacity: 0.03 + scrollY * 0.04,
-          }}
-        >
-          <span className="text-[15vw] md:text-[12vw] font-serif font-black italic text-danger-red uppercase leading-none" style={{ WebkitTextStroke: '2px rgba(255,0,0,0.3)', color: 'transparent' }}>
-            CRIMINAL
-          </span>
-        </div>
-        <div 
-          className="absolute z-[1] pointer-events-none select-none w-full text-center bottom-[10%]"
-          style={{
-            transform: `translateY(${scrollY * -100}px)`,
-            opacity: 0.02 + scrollY * 0.03,
-          }}
-        >
-          <span className="text-[10vw] md:text-[8vw] font-serif font-black italic text-white uppercase leading-none" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.1)', color: 'transparent' }}>
-            PENCURI LAPTOP
-          </span>
-        </div>
-
-        {/* Bottom text reveal */}
-        <div 
-          className="absolute bottom-8 left-0 right-0 text-center z-[16]"
-          style={{ opacity: Math.max(0, scrollY * 2 - 0.5) }}
-        >
-          <p className="text-gray-600 text-[10px] tracking-[0.5em] uppercase font-black animate-pulse">
-            SCROLL UNTUK MELIHAT LEBIH BANYAK BUKTI KEJAHATAN ↓
-          </p>
-        </div>
-
-        {/* Pulsing red corner warnings */}
-        <div className="absolute top-6 left-6 z-[16] flex items-center gap-2" style={{ opacity: isInView ? 1 : 0, transition: 'opacity 0.3s' }}>
-          <div className="w-3 h-3 bg-danger-red rounded-full animate-pulse" />
-          <span className="text-danger-red text-[9px] font-black tracking-[0.4em] uppercase">REC</span>
-        </div>
-        <div className="absolute top-6 right-6 z-[16]" style={{ opacity: isInView ? 1 : 0, transition: 'opacity 0.3s' }}>
-          <span className="text-gray-600 text-[9px] font-mono">CAM-07 // {new Date().toLocaleDateString('id-ID')}</span>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Testimonials = () => {
   const reviews = [
     {
       name: 'Korban #001',
       role: 'Teman Sekampus',
       comment: 'Azarine minta pinjam laptop saya buat kerjain tugas UAS. "Cuma 2 hari kok" katanya. Itu sudah 4 bulan yang lalu. Sekarang chat saya cuma di-read, telepon gak diangkat. Laptop Rp 15 juta hilang begitu saja.',
-      img: '/korban.png'
+      img: 'https://i.pravatar.cc/100?img=11'
     },
     {
       name: 'Korban #002',
@@ -907,145 +544,6 @@ const Testimonials = () => {
   );
 };
 
-const VictimSpotlight = () => {
-  const stats = [
-    { label: 'Status Laptop', value: 'TIDAK KEMBALI', sub: 'Sejak 4 bulan lalu' },
-    { label: 'Chat Terakhir', value: 'DI-READ DOANG', sub: 'Lalu nomor diblokir' },
-    { label: 'Kerugian', value: 'RP 15.000.000', sub: 'MacBook Pro M1 2021' },
-    { label: 'Keberadaan Azarine', value: 'KABUR TOTAL', sub: 'Kos kosong, sosmed dihapus' },
-  ];
-
-  return (
-    <section className="py-0 bg-crime-black relative overflow-hidden">
-      {/* Full-bleed image */}
-      <div className="relative w-full" style={{ minHeight: '90vh' }}>
-
-        {/* Background red fog */}
-        <div className="absolute inset-0 z-0 bg-crime-black" />
-        <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(ellipse 60% 80% at 30% 50%, rgba(180,0,0,0.25) 0%, transparent 70%)' }} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-
-          {/* ── Left: giant photo ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="relative"
-          >
-            {/* Corner brackets */}
-            <div className="absolute -top-4 -left-4 w-10 h-10 border-t-2 border-l-2 border-danger-red z-20" />
-            <div className="absolute -top-4 -right-4 w-10 h-10 border-t-2 border-r-2 border-danger-red z-20" />
-            <div className="absolute -bottom-4 -left-4 w-10 h-10 border-b-2 border-l-2 border-danger-red z-20" />
-            <div className="absolute -bottom-4 -right-4 w-10 h-10 border-b-2 border-r-2 border-danger-red z-20" />
-
-            {/* Photo */}
-            <div className="relative overflow-hidden border border-danger-red/30 shadow-[0_0_80px_rgba(255,0,0,0.25)]">
-              <img
-                src="/korban.png"
-                alt="Victim Profile"
-                className="w-full object-cover"
-                style={{ maxHeight: '70vh', objectPosition: 'top', filter: 'grayscale(30%) contrast(1.1) brightness(0.85)' }}
-              />
-              {/* Gradient overlay bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-crime-black via-crime-black/10 to-transparent" />
-
-              {/* VICTIM stamp */}
-              <div className="absolute top-6 left-6 z-20">
-                <div className="border-2 border-danger-red/80 px-5 py-1 bg-danger-red/10 backdrop-blur-sm rotate-[-4deg]">
-                  <span className="text-danger-red font-serif font-black text-lg md:text-2xl italic tracking-[0.2em] uppercase" style={{ textShadow: '0 0 16px rgba(255,0,0,0.6)' }}>
-                    KORBAN
-                  </span>
-                </div>
-              </div>
-
-              {/* Case number */}
-              <div className="absolute top-6 right-6 z-20">
-                <span className="text-gray-500 font-mono text-[10px] tracking-widest uppercase">CASE #001</span>
-              </div>
-
-              {/* Bottom ID bar */}
-              <div className="absolute bottom-0 left-0 right-0 z-20 bg-crime-black/80 backdrop-blur-sm border-t border-danger-red/30 px-6 py-4">
-                <p className="text-danger-red font-black text-[10px] tracking-[0.5em] uppercase mb-1">Victim Identification</p>
-                <p className="text-white font-serif font-black text-xl italic uppercase tracking-wider">Korban #001 — Teman Sekampus</p>
-                <p className="text-gray-500 text-[10px] tracking-[0.25em] uppercase mt-1">Terakhir terlihat: Januari 2026 • Status: KEHILANGAN LAPTOP</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Right: dramatic text ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            className="flex flex-col gap-8"
-          >
-            <div>
-              <span className="text-danger-red font-montserrat tracking-[0.5em] text-[10px] uppercase font-black flex items-center gap-2">
-                <AlertTriangle size={12} /> Victim Dossier
-              </span>
-              <h2 className="text-4xl md:text-6xl font-serif font-black mt-4 text-white uppercase italic leading-none">
-                Nasib <span className="text-danger-red">Korban</span> Saat Ini
-              </h2>
-            </div>
-
-            <div className="border-l-4 border-danger-red pl-6 space-y-4">
-              <p className="text-gray-400 leading-relaxed text-sm">
-                Setelah laptopnya dipinjam oleh Azarine dengan alasan <span className="text-white font-bold">"buat kerjain tugas UAS, cuma 2 hari"</span>, korban ini tidak pernah lagi melihat laptopnya.
-              </p>
-              <p className="text-gray-500 leading-relaxed text-sm">
-                Berbulan-bulan mencoba menghubungi — chat di-read, telepon tidak diangkat, WhatsApp terakhir centang dua biru. Hingga suatu hari nomor Azarine <span className="text-danger-red font-bold">tidak aktif</span>. Kos-kosan ditinggalkan. Akun sosial media dihapus.
-              </p>
-              <p className="text-gray-500 leading-relaxed text-sm">
-                Korban kini harus <span className="text-white font-bold">meminjam laptop teman</span> untuk mengerjakan tugasnya sendiri. Laptop senilai <span className="text-danger-red font-bold">Rp 15 juta</span> itu hingga kini tidak pernah kembali.
-              </p>
-            </div>
-
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="bg-crime-gray border border-danger-red/20 p-5 hover:border-danger-red/60 transition-colors"
-                >
-                  <p className="text-[9px] text-gray-600 font-black uppercase tracking-[0.3em] mb-1">{s.label}</p>
-                  <p className="text-danger-red font-black text-sm md:text-base uppercase tracking-tight leading-tight">{s.value}</p>
-                  <p className="text-gray-600 text-[10px] mt-1">{s.sub}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Blinking status */}
-            <motion.div
-              animate={{ opacity: [1, 0.4, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="flex items-center gap-3 border border-danger-red/30 bg-danger-red/5 px-6 py-4"
-            >
-              <div className="w-3 h-3 bg-danger-red rounded-full" />
-              <p className="text-danger-red font-black text-xs uppercase tracking-widest">
-                STATUS AKTIF: MENUNGGU LAPTOP KEMBALI — TIDAK ADA KABAR
-              </p>
-            </motion.div>
-
-            <a
-              href="#report"
-              className="danger-btn flex items-center justify-center gap-2 text-center"
-            >
-              <FileWarning size={18} /> SAYA JUGA KORBAN AZARINE
-            </a>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const ReportForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -1085,7 +583,7 @@ const ReportForm = () => {
                   <input
                     required
                     value={formData.nama}
-                    onChange={e => setFormData({...formData, nama: e.target.value})}
+                    onChange={e => setFormData({ ...formData, nama: e.target.value })}
                     className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
                     placeholder="Nama korban"
                   />
@@ -1095,7 +593,7 @@ const ReportForm = () => {
                   <input
                     required
                     value={formData.hp}
-                    onChange={e => setFormData({...formData, hp: e.target.value})}
+                    onChange={e => setFormData({ ...formData, hp: e.target.value })}
                     className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
                     placeholder="08xx-xxxx-xxxx"
                   />
@@ -1108,7 +606,7 @@ const ReportForm = () => {
                   <input
                     required
                     value={formData.laptopMerk}
-                    onChange={e => setFormData({...formData, laptopMerk: e.target.value})}
+                    onChange={e => setFormData({ ...formData, laptopMerk: e.target.value })}
                     className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
                     placeholder="cth: MacBook Pro, ASUS ROG"
                   />
@@ -1117,7 +615,7 @@ const ReportForm = () => {
                   <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block">Seri / Tipe</label>
                   <input
                     value={formData.laptopSeri}
-                    onChange={e => setFormData({...formData, laptopSeri: e.target.value})}
+                    onChange={e => setFormData({ ...formData, laptopSeri: e.target.value })}
                     className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
                     placeholder="cth: M2 2023, Strix G15"
                   />
@@ -1130,7 +628,7 @@ const ReportForm = () => {
                   <input
                     type="date"
                     value={formData.tanggalHilang}
-                    onChange={e => setFormData({...formData, tanggalHilang: e.target.value})}
+                    onChange={e => setFormData({ ...formData, tanggalHilang: e.target.value })}
                     className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors"
                   />
                 </div>
@@ -1138,7 +636,7 @@ const ReportForm = () => {
                   <label className="text-[10px] text-danger-red font-black uppercase tracking-widest mb-2 block flex items-center gap-1"><MapPin size={10} /> Lokasi Penyerahan</label>
                   <input
                     value={formData.lokasi}
-                    onChange={e => setFormData({...formData, lokasi: e.target.value})}
+                    onChange={e => setFormData({ ...formData, lokasi: e.target.value })}
                     className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600"
                     placeholder="cth: Kos-kosan daerah Depok"
                   />
@@ -1151,7 +649,7 @@ const ReportForm = () => {
                   required
                   rows={4}
                   value={formData.kronologi}
-                  onChange={e => setFormData({...formData, kronologi: e.target.value})}
+                  onChange={e => setFormData({ ...formData, kronologi: e.target.value })}
                   className="w-full bg-crime-black border border-danger-red/20 px-4 py-3 text-white text-sm focus:border-danger-red outline-none transition-colors placeholder:text-gray-600 resize-none"
                   placeholder="Ceritakan bagaimana Azarine mencuri laptopmu..."
                 />
@@ -1205,8 +703,8 @@ const Footer = ({ onAction }: { onAction: () => void }) => {
             </p>
             <div className="flex gap-4">
               {[Target, Zap, Skull].map((Icon, i) => (
-                <button 
-                  key={i} 
+                <button
+                  key={i}
                   onClick={onAction}
                   className="w-10 h-10 rounded-none bg-crime-gray flex items-center justify-center text-danger-red hover:bg-danger-red hover:text-white transition-all border border-danger-red/20"
                 >
@@ -1250,12 +748,12 @@ const Modal = ({ isOpen, onClose, title, message, type = 'danger' }: { isOpen: b
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/90 backdrop-blur-sm" 
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
           />
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -1270,7 +768,7 @@ const Modal = ({ isOpen, onClose, title, message, type = 'danger' }: { isOpen: b
             <p className="text-gray-400 mb-8 leading-relaxed font-bold uppercase tracking-tight text-sm">
               {message}
             </p>
-            <button 
+            <button
               onClick={onClose}
               className={`w-full py-4 font-black uppercase tracking-[0.2em] transition-all ${type === 'danger' ? 'bg-danger-red text-white hover:bg-crimson' : 'bg-warning-yellow text-black hover:bg-yellow-500'}`}
             >
@@ -1343,22 +841,20 @@ export default function App() {
       <Navbar onStayAway={handleStayAway} />
       <main>
         <Hero />
-        <ParallaxCriminal />
         <Services />
         <Catalog onTouchItem={handleTouchItem} />
         <CrimeTimeline />
         <Testimonials />
-        <VictimSpotlight />
         <ReportForm />
       </main>
       <Footer onAction={() => showAlert("SINDIKAT AKTIF", "AZARINE SEDANG MEMANTAU SETIAP KLIK ANDA. JANGAN MENCOBA MENGHUBUNGI SIAPAPUN.")} />
       <FloatingWarning onClick={handlePanic} />
-      
-      <Modal 
-        isOpen={modal.open} 
-        onClose={() => setModal({ ...modal, open: false })} 
-        title={modal.title} 
-        message={modal.message} 
+
+      <Modal
+        isOpen={modal.open}
+        onClose={() => setModal({ ...modal, open: false })}
+        title={modal.title}
+        message={modal.message}
         type={modal.type}
       />
     </div>
