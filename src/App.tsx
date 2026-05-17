@@ -148,7 +148,7 @@ const Hero = () => {
           </div>
 
           <p className="text-gray-500 mb-10 max-w-md text-lg leading-relaxed border-l-2 border-danger-red pl-6">
-            Azarine sudah menghilangkan <span className="text-danger-red font-black">SELURUH laptop pinjaman</span> dan langsung kabur tanpa jejak. Tidak ada satupun unit yang kembali. Semua korban dibiarkan menanggung kerugian jutaan rupiah.
+            Modusnya sederhana: <span className="text-danger-red font-black">"Pinjem laptop bentar ya buat kerjain tugas"</span>. Setelah itu? Berbulan-bulan tidak dikembalikan. Chat dibaca tapi tidak dibalas. Telepon tidak diangkat. Sampai akhirnya dia menghilang total bersama semua laptop korbannya.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -226,20 +226,20 @@ const Hero = () => {
 const Services = () => {
   const modus = [
     {
-      title: 'Penghilangan Massal',
-      desc: 'Semua laptop yang pernah masuk ke Azarine tidak pernah kembali. Total kerugian korban mencapai ratusan juta rupiah. Dia menghilang bersama semua unit sekaligus.',
+      title: '"Pinjem Buat Tugas"',
+      desc: 'Modus klasik Azarine: minta pinjam laptop dengan alasan ada tugas deadline. Dijanjikan 1-2 hari. Kenyataannya? Berbulan-bulan tidak dikembalikan. Chat di-read doang, telepon gak diangkat.',
       icon: <EyeOff className="text-danger-red" size={32} />,
       bg: 'bg-crime-gray'
     },
     {
-      title: 'Kabur Tanpa Jejak',
-      desc: 'Setelah mengumpulkan puluhan laptop dari korban, Azarine langsung menghilang. Nomor HP mati, alamat palsu, identitas fiktif. Tidak ada yang bisa melacak keberadaannya.',
+      title: 'Ghosting Berbulan-bulan',
+      desc: 'Setelah laptop di tangan, Azarine langsung menghilang dari peredaran. Nomor HP berganti, akun sosmed dihapus, alamat kos kosong. Korban ditinggalkan tanpa kejelasan berbulan-bulan.',
       icon: <Ghost className="text-danger-red" size={32} />,
       bg: 'bg-crime-black'
     },
     {
-      title: 'Manipulasi Total',
-      desc: 'Azarine menggunakan identitas palsu, testimoni palsu, dan jaminan palsu untuk meyakinkan korban. Setelah barang di tangan, semua janji langsung dilanggar.',
+      title: 'Janji Palsu Berulang',
+      desc: '"Besok ya", "Minggu depan pasti", "Lagi dipake bentar lagi". Azarine adalah master janji palsu. Setiap kali ditagih, alasannya selalu baru. Sampai akhirnya dia benar-benar menghilang.',
       icon: <ShieldAlert className="text-danger-red" size={32} />,
       bg: 'bg-crime-gray'
     }
@@ -292,32 +292,32 @@ const Services = () => {
 const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
   const stolenGoods = [
     {
-      name: 'BB LAPTOP SAMEC',
-      brand: 'STOLEN FROM APPLE',
-      status: 'GONE',
+      name: 'LAPTOP SAMEC',
+      brand: 'DIPINJAM "BUAT TUGAS"',
+      status: '4 BULAN GAK BALIK',
       img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=400',
-      tag: 'Untraceable'
+      tag: 'Hilang'
     },
     {
-      name: 'BB LAPTOP ZHAFRAN',
-      brand: 'MISSING UNIT',
-      status: 'SOLD',
+      name: 'LAPTOP ZHAFRAN',
+      brand: 'ALASAN: DEADLINE KAMPUS',
+      status: '6 BULAN GAK BALIK',
       img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400',
-      tag: 'Scrap'
+      tag: 'Di-ghosting'
     },
     {
-      name: 'BB LAPTOP DEVIN',
-      brand: 'CRIME SCENE #42',
-      status: 'HIDDEN',
+      name: 'LAPTOP DEVIN',
+      brand: 'BILANGNYA "SEBENTAR AJA"',
+      status: '3 BULAN GAK BALIK',
       img: 'https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&q=80&w=400',
-      tag: 'Evidence'
+      tag: 'No Response'
     },
     {
-      name: 'BB LAPTOP RADIS',
-      brand: 'LAST SEEN @MALL',
-      status: 'REMOVED',
+      name: 'LAPTOP RADIS',
+      brand: 'JANJI BESOK BALIKIN',
+      status: '5 BULAN GAK BALIK',
       img: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=400',
-      tag: 'Hot Item'
+      tag: 'Chat di-read'
     }
   ];
 
@@ -380,10 +380,10 @@ const Catalog = ({ onTouchItem }: { onTouchItem: () => void }) => {
 
 const CrimeTimeline = () => {
   const events = [
-    { date: 'Jan 2026', event: 'Azarine mulai beroperasi dengan kedok rental laptop premium', icon: <Laptop size={16} /> },
-    { date: 'Feb 2026', event: 'Korban pertama melapor: MacBook Pro senilai Rp 25 juta tidak dikembalikan', icon: <AlertTriangle size={16} /> },
-    { date: 'Mar 2026', event: '15 korban baru. Azarine pindah lokasi dan ganti nomor HP', icon: <MapPin size={16} /> },
-    { date: 'Apr 2026', event: 'Total 47 laptop hilang. Kerugian mencapai Rp 500 juta. Azarine menghilang total', icon: <Skull size={16} /> },
+    { date: 'Jan 2026', event: 'Azarine mulai minta pinjam laptop ke temen-temennya. Alasan: "Ada tugas penting, laptopku rusak"', icon: <Laptop size={16} /> },
+    { date: 'Feb 2026', event: 'Laptop pertama belum dikembalikan. Azarine mulai ghosting. Chat dibaca tapi gak dibales. Mulai pinjam ke korban lain.', icon: <AlertTriangle size={16} /> },
+    { date: 'Mar 2026', event: 'Sudah 4 laptop dipinjam dari orang berbeda. Semua dijanjikan "besok balikin". Tidak ada satupun yang kembali. Mulai ganti nomor HP.', icon: <MapPin size={16} /> },
+    { date: 'Apr 2026', event: 'Azarine menghilang total. Kos kosong, nomor mati, sosmed dihapus. Semua laptop korban dibawa kabur. Tidak ada kabar sampai sekarang.', icon: <Skull size={16} /> },
   ];
 
   return (
@@ -423,20 +423,20 @@ const Testimonials = () => {
   const reviews = [
     {
       name: 'Korban #001',
-      role: 'Eks-Mahasiswa UI',
-      comment: 'Laptop saya untuk skripsi dibawa kabur Azarine. Dia bilang "besok dikembalikan" tapi besoknya nomor sudah tidak aktif. Saya kehilangan laptop dan data skripsi sekaligus.',
+      role: 'Teman Sekampus',
+      comment: 'Azarine minta pinjam laptop saya buat kerjain tugas UAS. "Cuma 2 hari kok" katanya. Itu sudah 4 bulan yang lalu. Sekarang chat saya cuma di-read, telepon gak diangkat. Laptop Rp 15 juta hilang begitu saja.',
       img: 'https://i.pravatar.cc/100?img=11'
     },
     {
-      name: 'Korban #042',
-      role: 'Pengusaha Bangkrut',
-      comment: 'Saya gadaikan 3 laptop kantor untuk modal usaha. Azarine berjanji bunga rendah dan transparan. Seminggu kemudian dia menghilang bersama ketiga laptop senilai Rp 75 juta.',
+      name: 'Korban #002',
+      role: 'Teman SMA',
+      comment: 'Dia bilang laptopnya rusak dan butuh buat presentasi kerja besok. Saya kasih karena kasihan. Sudah 6 bulan, laptopnya gak balik. Tiap ditagih jawabnya "besok ya" sampai akhirnya nomornya gak aktif.',
       img: 'https://i.pravatar.cc/100?img=53'
     },
     {
-      name: 'Anonim',
-      role: 'Saksi Mata',
-      comment: 'Saya pernah satu kos dengan Azarine. Tengah malam dia bawa keluar 2 koper penuh laptop. Besoknya dia sudah pindah kos tanpa bilang siapapun.',
+      name: 'Korban #003',
+      role: 'Teman Kos',
+      comment: 'Satu kos sama Azarine. Dia pinjem laptop buat nonton Netflix katanya. Besoknya dia udah pindah kos dan bawa laptop saya. Ternyata temen kos lain juga kehilangan laptop yang dipinjam dia.',
       img: 'https://i.pravatar.cc/100?img=32'
     }
   ];
@@ -636,7 +636,7 @@ const Footer = ({ onAction }: { onAction: () => void }) => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-3xl font-serif italic font-black text-danger-red mb-6 glitch-text">AZARINE: CRIMINALE</h3>
             <p className="text-gray-500 max-w-sm mb-6 leading-relaxed text-sm">
-              Jangan serahkan barang berhargamu. Azarine adalah sindikat kriminal kakap yang beroperasi di bawah kedok rental.
+              Jangan pernah pinjamkan laptopmu ke Azarine. Dia akan bilang "buat kerjain tugas" lalu ghosting berbulan-bulan sampai akhirnya kabur bawa semua laptop korban.
             </p>
             <div className="flex gap-4">
               {[Target, Zap, Skull].map((Icon, i) => (
